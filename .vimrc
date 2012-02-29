@@ -1,6 +1,8 @@
-"pathogen
+"pathogen plugin
 "call pathogen#runtime_append_all_bundles()
 filetype off
+
+"vundle plugin
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
@@ -106,20 +108,20 @@ autocmd! bufwritepost vimrc source ~/.vimrc
 "se local dir
 :map <Leader>cd :exe 'cd ' .expand ("%:p:h")<CR>
 
-":inoremap ( ()<ESC>i
-":inoremap ) <c-r>=ClosePair(')')<CR>
-":inoremap { {}<ESC>i
-":inoremap } <c-r>=ClosePair('}')<CR>
-":inoremap [ []<ESC>i
-":inoremap ] <c-r>=ClosePair(']')<CR>
+:inoremap ( ()<ESC>i
+:inoremap ) <c-r>=ClosePair(')')<CR>
+:inoremap { {}<ESC>i
+:inoremap } <c-r>=ClosePair('}')<CR>
+:inoremap [ []<ESC>i
+:inoremap ] <c-r>=ClosePair(']')<CR>
 
-"function! ClosePair(char)
-    "if getline('.')[col('.') - 1] == a:char
-        "return "<Right>"
-    "else
-        "return a:char
-    "endif
-"endf 
+function! ClosePair(char)
+    if getline('.')[col('.') - 1] == a:char
+        return "<Right>"
+    else
+        return a:char
+    endif
+endf 
 
 " 失去焦点，就自动保存
 au FocusLost * :wa 
