@@ -1,7 +1,0 @@
-this is my .vim files
-including:
-pathogen.vim
-nerdtree.vim
-nerdcommenter.vim
-vimwiki.vim
-calendar.vim
