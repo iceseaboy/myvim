@@ -122,7 +122,7 @@ function! s:safe_html(line) "{{{
 
   let tags = join(split(g:vimwiki_valid_html_tags, '\s*,\s*'), '\|')
   let line = substitute(line,'<\%(/\?\%('
-        \.tags.'\)\%(\s\{-1}\S\{-}\)\{-}/\?>\)\@!', 
+        \.tags.'\)\%(\s\{-1}\S\{-}\)\{-}/\?>\)\@!',
         \'\&lt;', 'g')
   let line = substitute(line,'\%(</\?\%('
         \.tags.'\)\%(\s\{-1}\S\{-}\)\{-}/\?\)\@<!>',
@@ -596,7 +596,7 @@ endfunction "}}}
 function! s:close_tag_table(table, ldest) "{{{
   " The first element of table list is a string which tells us if table should be centered.
   " The rest elements are rows which are lists of columns:
-  " ['center', 
+  " ['center',
   "   [ CELL1, CELL2, CELL3 ],
   "   [ CELL1, CELL2, CELL3 ],
   "   [ CELL1, CELL2, CELL3 ],
@@ -607,7 +607,7 @@ function! s:close_tag_table(table, ldest) "{{{
     let table = a:table
 
     " Get max cells
-    let max_cells = 0 
+    let max_cells = 0
     for row in table[1:]
       let n_cells = len(row)
       if n_cells > max_cells
@@ -653,14 +653,14 @@ function! s:close_tag_table(table, ldest) "{{{
   function! s:close_tag_row(row, header, ldest) "{{{
     call add(a:ldest, '<tr>')
 
-    " Set tag element of columns 
+    " Set tag element of columns
     if a:header
       let tag_name = 'th'
     else
       let tag_name = 'td'
     end
 
-    " Close tag of columns 
+    " Close tag of columns
     for cell in a:row
       if cell.rowspan == 0 || cell.colspan == 0
         continue
@@ -801,7 +801,7 @@ function! s:process_tag_list(line, lists) "{{{
           let chk[1] ='\'.chk[1]
         endif
         let completion = match(g:vimwiki_listsyms, '\C' . chk[1])
-        if completion >= 0 && completion <=4 
+        if completion >= 0 && completion <=4
           let st_tag = '<li class="done'.completion.'">'
         endif
       endif
@@ -980,7 +980,7 @@ function! s:process_tag_h(line, id) "{{{
 
     let h_text = s:trim(strpart(line, h_level, len(line) - h_level * 2))
     if g:vimwiki_html_header_numbering
-      let num = matchstr(h_number, 
+      let num = matchstr(h_number,
             \ '^\(\d.\)\{'.(g:vimwiki_html_header_numbering-1).'}\zs.*')
       if !empty(num)
         let num .= g:vimwiki_html_header_numbering_sym
@@ -1389,7 +1389,7 @@ function! vimwiki#html#Wiki2HTML(path, wikifile) "{{{
   call map(html_lines, 'substitute(v:val, "%encoding%", "'. enc .'", "g")')
 
   let html_lines = s:html_insert_contents(html_lines, ldest) " %contents%
-  
+
   "" make html file.
   call writefile(html_lines, path.htmlfile)
 
