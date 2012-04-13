@@ -1,6 +1,7 @@
 "pathogen plugin
 "call pathogen#runtime_append_all_bundles()
 filetype off
+se ls=0
 
 "vundle plugin
 set rtp+=~/.vim/bundle/vundle/
@@ -64,16 +65,28 @@ if has("gui_macvim")
     se guioptions-=T
 
     "mac cmd keys
-    :map <D-v> <C-v>
-    :map <D-e> <C-e>
-    :map <D-f> <C-f>
-    :map <D-b> <C-b>
-    :map <D-d> <C-d>
-    :map <D-o> <C-o>
-    :map <D-w> <C-w>
-    :map <D-g> <C-g>
-    :map <D-r> <C-g>
-    :map <D-t> :tabnew<CR>
+    map <D-v> <C-v>
+    map <D-e> <C-e>
+    map <D-f> <C-f>
+    map <D-b> <C-b>
+    map <D-d> <C-d>
+    map <D-o> <C-o>
+    map <D-w> <C-w>
+    map <D-g> <C-g>
+    map <D-1> 1gt
+    map <D-2> 2gt
+    map <D-3> 3gt
+    map <D-4> 4gt
+    map <D-5> 5gt
+    map <D-6> 6gt
+    map <D-7> 7gt
+    map <D-8> 8gt
+    map <D-9> gT
+    map <D-0> gt
+
+    "map <D-r> <C-g>
+    
+    map <D-t> :tabnew<CR>
 
 
     "se imactivatekey=C-space
@@ -106,7 +119,7 @@ autocmd! bufwritepost vimrc source ~/.vimrc
 "autocmd! BufWinEnter * lcd pwd
 
 "se local dir
-:map <Leader>cd :exe 'cd ' .expand ("%:p:h")<CR>
+map <Leader>cd :exe 'cd ' .expand ("%:p:h")<CR>
 
 :inoremap ( ()<ESC>i
 :inoremap ) <c-r>=ClosePair(')')<CR>
@@ -126,19 +139,19 @@ endf
 " 失去焦点，就自动保存
 au FocusLost * :wa 
 "copy all
-:map <F2> ggvG$"*y
+map <F2> ggvG$"*y
 "beautify css
-:map <F3> :%s/{/{\r/g<CR>:%s/;/;\r/g<CR>:%s/;}/}/g<CR>:%s/}/;\r}/g<CR>:g/^$/d<CR>ggvG=gg
+map <F3> :%s/{/{\r/g<CR>:%s/;/;\r/g<CR>:%s/;}/}/g<CR>:%s/}/;\r}/g<CR>:g/^$/d<CR>ggvG=gg
 "cp936 charset
-:map <F4> :se fenc=cp936<CR>:w<CR>
+map <F4> :se fenc=cp936<CR>:w<CR>
 "utf-8 charset
-:map <F5> :se fenc=utf-8<CR>:w<CR>
+map <F5> :se fenc=utf-8<CR>:w<CR>
 "replace space row
-:map <F6> :g/^$/d<CR>
+map <F6> :g/^$/d<CR>
 "open calendar
-:map <F7> :tabnew<CR>:Calendar<CR>
+map <F7> :tabnew<CR>:Calendar<CR>
 "open folder
-:map <F8> :exe 'cd ' .expand ("%:p:h")<CR>:NERDTree<CR>
+map <F8> :exe 'cd ' .expand ("%:p:h")<CR>:NERDTree<CR>
 
 "move back to ~/.tmp/backups/
 se backupdir=~/.tmp/backups
