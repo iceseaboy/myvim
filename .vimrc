@@ -13,7 +13,10 @@ Bundle 'gmarik/vundle'
 Bundle 'vimwiki'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/nerdcommenter'
+Bundle "mattn/calendar-vim"
 
+au InsertEnter * se noimd 
+au InsertLeave * se imd
 "not for vi
 se nowrap
 syntax on
@@ -170,3 +173,6 @@ se showcmd
 se showmode
 "实时显示查找结果
 se incsearch
+
+
+map <F2> ggvG$"*y
