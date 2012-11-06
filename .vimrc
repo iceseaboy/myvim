@@ -14,9 +14,18 @@ Bundle 'vimwiki'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/nerdcommenter'
 Bundle "mattn/calendar-vim"
+Bundle "https://github.com/nathanaelkane/vim-indent-guides.git"
 
-au InsertEnter * se noimd 
-au InsertLeave * se imd
+
+"from aben input
+"au InsertEnter * se noimd 
+"au InsertLeave * se imd
+"se imd
+"se imi=0
+"se ims=-1
+"au FocusGained * se imi=0
+"from aben end
+
 "not for vi
 se nowrap
 syntax on
@@ -52,7 +61,8 @@ if has("gui_macvim")
     "colorscheme evening
     "se transparency=0
 
-    se cc=141
+    se cc=101
+    se cuc
     "取消默认快捷键
     let macvim_skip_cmd_opt_movement = 1
     let macvim_hig_shift_movement = 1
@@ -140,7 +150,9 @@ function! ClosePair(char)
 endf 
 
 " 失去焦点，就自动保存
-au FocusLost * :wa 
+"au FocusLost * :wa 
+au FocusLost * silent! wa
+
 "copy all
 map <F2> ggvG$"*y
 "beautify css
@@ -174,5 +186,7 @@ se showmode
 "实时显示查找结果
 se incsearch
 
-
-map <F2> ggvG$"*y
+"indent plugin
+let g:indent_guides_auto_colors = 0
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=3
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=4

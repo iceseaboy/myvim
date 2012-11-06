@@ -1,3 +1,4 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =1
+let g:netrw_dirhist_cnt =2
 let g:netrw_dirhist_1='/Users/vesper/code/sohu/tv/upload/tvindex110421/js'
+let g:netrw_dirhist_2='/Users/vesper/code/sohu/static/mytv/js'
